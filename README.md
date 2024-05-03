@@ -20,12 +20,13 @@ Ce projet vise à démontrer plusieurs aspects :
 
 ## Cas Testés
 
-Nous testons notre approche sur plusieurs cas d'utilisation représentatifs, notamment :
+Le programme est conçu pour diviser une image en plusieurs parties et traiter chaque partie en parallèle. Deux opérations sont effectuées sur chaque partie de l'image :
 
-1. Images de Tailles Variables : Nous testons notre programme sur des images de différentes tailles pour évaluer sa capacité à gérer des images de grande taille.
+- Rotation d'Image : Une rotation de 30 degrés est appliquée à chaque partie de l'image.
 
-2. Charges de Travail Variables : Nous testons le programme avec différentes charges de travail pour évaluer sa capacité à s'adapter à des scénarios où le nombre de parties de l'image à traiter peut varier.
+- Détection de Contours : Les contours sont détectés dans chaque partie de l'image à l'aide de l'algorithme de détection de contours de Canny.
 
+Le temps d'exécution du traitement parallèle est comparé à celui du traitement séquentiel pour évaluer l'efficacité de la parallélisation.
 ## Exécution
 
 Pour exécuter le programme, assurez-vous d'avoir Python installé sur votre système, ainsi que la bibliothèque OpenCV. Vous pouvez l'installer en utilisant pip :
