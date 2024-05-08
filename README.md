@@ -27,9 +27,6 @@ Le programme est conçu pour diviser une image en plusieurs parties et traiter c
 - Détection de Contours : Les contours sont détectés dans chaque partie de l'image à l'aide de l'algorithme de détection de contours de Canny.
 
 Le temps d'exécution du traitement parallèle est comparé à celui du traitement séquentiel pour évaluer l'efficacité de la parallélisation.
-## Exécution
-
-Pour exécuter le programme, assurez-vous d'avoir Python installé sur votre système, ainsi que la bibliothèque OpenCV. Vous pouvez l'installer en utilisant pip :
 
 ## Résultats
 
@@ -42,6 +39,10 @@ Lors de l'exécution du script de transformation géométrique avec une seule im
 
 Dans ce cas, la différence de temps entre les deux traitements n'est pas significative, mais le traitement parallèle est légèrement plus rapide que le traitement séquentiel.
 
+Dans ce cas, le traitement parallèle peut offrir des avantages en termes de vitesse d'exécution, car les différentes parties de l'image peuvent être traitées simultanément par différents threads.
+Cependant, les gains de performance peuvent être limités si la taille de l'image est petite ou si le traitement est relativement rapide, car il y a un certain surcoût lié à la gestion des threads.
+La comparaison des temps d'exécution montre que le traitement parallèle peut être légèrement plus lent dans ce cas en raison du surcoût lié à la parallélisation.
+
 ### Cas 2 : Traitement avec plusieurs exécutions de la même image
 
 Lors de l'exécution du même script avec la même image mais plusieurs fois, les résultats suivants ont été obtenus :
@@ -50,6 +51,30 @@ Lors de l'exécution du même script avec la même image mais plusieurs fois, le
 - Temps d'exécution (séquentiel) : 0.4040093421936035 secondes
 
 Dans ce cas, on observe une différence plus significative entre les temps d'exécution du traitement parallèle et du traitement séquentiel. Le traitement parallèle est plus rapide que le traitement séquentiel, avec une différence d'environ 0.09785747528076172 secondes.
+
+Lorsque plusieurs images différentes sont traitées de manière séquentielle, le traitement parallèle peut encore offrir des avantages en termes de vitesse, car chaque image peut être traitée simultanément par un thread distinct.
+Cependant, si les images sont de tailles différentes ou nécessitent des quantités variables de travail, il peut y avoir des déséquilibres de charge entre les threads, ce qui peut entraîner une utilisation inefficace des ressources de calcul.
+Dans ce cas, le temps d'exécution parallèle peut être comparable ou légèrement plus lent que le traitement séquentiel en raison des déséquilibres de charge ou du surcoût lié à la gestion des threads.
+
+
+### Cas 3 : Traitement avec plusieurs images différentes 
+
+Lors de l'exécution du même script avec les différents images les résultats suivants ont été obtenus :
+
+-  Temps d'exécution (parallèle) : 0.5613892078399658 secondes
+-  Temps d'exécution (séquentiel) : 0.40071266174316406
+
+Dans ce cas, on observe une différence plus significative entre les temps d'exécution du traitement parallèle et du traitement séquentiel. Le traitement parallèle est plus rapide que le traitement séquentiel, avec une différence d'environ 0.09785747528076172 secondes.
+
+Lorsque plusieurs images différentes sont traitées simultanément de manière parallèle, il peut y avoir des opportunités significatives pour l'exploitation du parallélisme, car chaque image peut être traitée indépendamment des autres.
+Si les images sont de tailles similaires et nécessitent des quantités similaires de travail, le traitement parallèle peut fournir des gains de performance significatifs en répartissant la charge de travail sur plusieurs threads.
+Cependant, si les images sont de tailles très différentes ou nécessitent des quantités variables de travail, il peut y avoir des déséquilibres de charge entre les threads, ce qui peut affecter les performances globales.
+Dans ce cas, le temps d'exécution parallèle peut être considérablement plus court que le traitement séquentiel, en particulier lorsque les images sont suffisamment nombreuses et que la charge de travail est équilibrée entre les threads.
+
+## Conclusion
+
+Dans l'ensemble, le traitement parallèle peut offrir des avantages significatifs en termes de vitesse d'exécution lors du traitement de plusieurs images différentes, surtout si les images sont de tailles similaires et nécessitent des quantités similaires de travail. Cependant, il est important de surveiller et de gérer les déséquilibres de charge pour optimiser les performances parallèles.
+
 ## Auteurs
 
 Ce projet a été développé par :

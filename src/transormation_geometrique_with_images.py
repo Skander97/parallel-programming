@@ -6,11 +6,20 @@ import concurrent.futures
 # Fonction pour appliquer une transformation géométrique (rotation) à une partie de l'image
 def rotation_partielle(image, debut, fin):
     hauteur, largeur = image.shape[:2]
+    
+    # Vérifier si la taille de la partie de l'image est valide
+    if debut >= fin or debut < 0 or fin > hauteur:
+        return debut, None
+    
     centre = (largeur // 2, hauteur // 2)
     angle = 30  # Angle de rotation
 
     rotation_matrix = cv2.getRotationMatrix2D(centre, angle, 1)
     image_rotated = cv2.warpAffine(image[debut:fin], rotation_matrix, (largeur, fin - debut))
+    
+    # Vérifier si l'image a été correctement transformée
+    if image_rotated is None:
+        return debut, None
 
     return debut, image_rotated
 
