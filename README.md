@@ -33,8 +33,23 @@ Pour exécuter le programme, assurez-vous d'avoir Python installé sur votre sys
 
 ## Résultats
 
-Le programme affichera les temps d'exécution du traitement parallèle et séquentiel. Les résultats seront comparés pour évaluer l'efficacité de la parallélisation dans le traitement d'images.
+### Cas 1 : Traitement avec une seule image
 
+Lors de l'exécution du script de transformation géométrique avec une seule image, les résultats suivants ont été obtenus :
+
+- Temps d'exécution (parallèle) : 0.13157129287719727 secondes
+- Temps d'exécution (séquentiel) : 0.19551730155944824 secondes
+
+Dans ce cas, la différence de temps entre les deux traitements n'est pas significative, mais le traitement parallèle est légèrement plus rapide que le traitement séquentiel.
+
+### Cas 2 : Traitement avec plusieurs exécutions de la même image
+
+Lors de l'exécution du même script avec la même image mais plusieurs fois, les résultats suivants ont été obtenus :
+
+- Temps d'exécution (parallèle) : 0.3061518669128418 secondes
+- Temps d'exécution (séquentiel) : 0.4040093421936035 secondes
+
+Dans ce cas, on observe une différence plus significative entre les temps d'exécution du traitement parallèle et du traitement séquentiel. Le traitement parallèle est plus rapide que le traitement séquentiel, avec une différence d'environ 0.09785747528076172 secondes.
 ## Auteurs
 
 Ce projet a été développé par :
