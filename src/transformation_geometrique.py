@@ -3,6 +3,7 @@ import numpy as np
 import time
 import concurrent.futures
 
+
 # Fonction pour appliquer une transformation géométrique (rotation) à une partie de l'image
 def rotation_partielle(image, debut, fin):
     hauteur, largeur = image.shape[:2]
@@ -59,3 +60,10 @@ temps_execution_sequentiel = time.time() - debut_chrono
 
 print(f"Temps d'exécution (parallèle) : {temps_execution_parallele} secondes")
 print(f"Temps d'exécution (séquentiel) : {temps_execution_sequentiel} secondes")
+
+plt.plot(nb_partitions_list, temps_execution_parallele_list, marker='o')
+plt.xlabel('Nombre de partitions')
+plt.ylabel("Temps d'exécution (parallèle) en secondes")
+plt.title("Impact du nombre de partitions sur le temps d'exécution parallèle")
+plt.grid(True)
+plt.show()

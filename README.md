@@ -43,6 +43,18 @@ Dans ce cas, le traitement parallèle peut offrir des avantages en termes de vit
 Cependant, les gains de performance peuvent être limités si la taille de l'image est petite ou si le traitement est relativement rapide, car il y a un certain surcoût lié à la gestion des threads.
 La comparaison des temps d'exécution montre que le traitement parallèle peut être légèrement plus lent dans ce cas en raison du surcoût lié à la parallélisation.
 
+Calcul du temps d'exécution du traitement parallèle par rapport aux nombres de partitions : 
+   - Le nombre de partitions (nb_partitions) dans le contexte de ce script fait référence au nombre de segments dans lesquels l'image est divisée pour le traitement parallèle. Chaque partition représente une section horizontale de l'image qui sera traitée indépendamment des autres. Plus précisément :
+
+   - Partitions : Chaque partition est un segment de l'image, défini par des indices de début (debut) et de fin (fin). Par exemple, si une image de 1200 pixels de hauteur est divisée en 12 partitions, chaque partition aura une hauteur de 100 pixels.
+   
+     ![Alt text](courbe.png)
+
+  En augmentant le nombre de partitions, chaque partition devient plus petite, permettant de distribuer le travail sur plus de threads, ce qui peut potentiellement accélérer le traitement si le système dispose de suffisamment de ressources (comme les cœurs de processeur).
+  Dans ce cas on voit que la courbe se stabilise vers 10 partitions qui représente la limite de resources de ma machine .
+
+
+
 ### Cas 2 : Traitement avec plusieurs exécutions de la même image
 
 Lors de l'exécution du même script avec la même image mais plusieurs fois, les résultats suivants ont été obtenus :
