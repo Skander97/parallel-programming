@@ -92,7 +92,7 @@ Dans l'ensemble, le traitement parallèle peut offrir des avantages significatif
 Ce projet a été développé par :
 
 - Skander LATRACH
-- Kelthoum PENOT
+- Oum Koulthoum PENOT
 - Vincent FABIANO
 - Hugo BARBOSA
 
