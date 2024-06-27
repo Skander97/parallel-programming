@@ -12,7 +12,7 @@ Les feuilles de présence sont des ressources critiques car chaque feuille ne pe
 Les stylos sont des ressources partagées car ils sont utilisés par différentes personnes pour signer les feuilles de présence. Cependant, chaque personne utilise le stylo puis le passe à son voisin, donc le partage des stylos ne nécessite pas de synchronisation particulière.
 
 ### Facteurs limitants :
-Les facteurs limitants incluent le nombre de feuilles de présence (5 feuilles) et le nombre de stylos (4 stylos). Le temps nécessaire pour signer une feuille de présence (5 secondes) et pour passer la feuille à un voisin (2 secondes) sont également des facteurs limitants.
+Les facteurs limitants incluent le nombre de feuilles de présence (5 feuilles) et le nombre de stylos (4 stylos). Le temps nécessaire pour signer une feuille de présence (5 secondes) et pour passer la feuille à un voisin (2 secondes) sont également des facteurs limitants. 
 
 ### Temps minimal pour signer les feuilles de présence :
 Le temps minimal pour signer toutes les feuilles de présence peut être calculé en additionnant le temps nécessaire pour signer chaque feuille et le temps nécessaire pour passer la feuille à un voisin. Dans ce cas, chaque feuille de présence prend 5 secondes pour être signée et chaque feuille prend 2 secondes pour être passée à un voisin. Par conséquent, le temps minimal pour signer toutes les feuilles de présence est de 35 secondes.
