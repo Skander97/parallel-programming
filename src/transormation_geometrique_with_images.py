@@ -7,7 +7,7 @@ import concurrent.futures
 def rotation_partielle(image, debut, fin):
     hauteur, largeur = image.shape[:2]
     
-    # Vérifier si la taille de la partie de l'image est valide
+    # Vérifier si la taille de la partie de l'image est valide 
     if debut >= fin or debut < 0 or fin > hauteur:
         return debut, None
     
